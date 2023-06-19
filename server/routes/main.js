@@ -27,6 +27,7 @@ router.get("", async (request, response) => {
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
+      currentRoute: "/",
     });
   } catch (error) {
     console.log("Error: ", +error);
@@ -84,7 +85,9 @@ router.post("/search", async (request, response) => {
 
 //about
 router.get("/about", (request, response) => {
-  response.render("about");
+  response.render("about", {
+    currentRoute: "/about",
+  });
 });
 
 module.exports = router;
